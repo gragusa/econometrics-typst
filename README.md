@@ -4,6 +4,20 @@ A Quarto format extension that produces PDF output via [Typst](https://typst.app
 
 ## Installation
 
+### Use as a template (new project)
+
+To create a new project with a starter document:
+
+```bash
+quarto use template gragusa/econometrics-typst
+```
+
+This will create a new directory with the extension and a `template.qmd` starter document.
+
+### Add to an existing project
+
+To add the extension to an existing Quarto project:
+
 ```bash
 quarto add gragusa/econometrics-typst
 ```

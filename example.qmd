@@ -1,0 +1,61 @@
+---
+title: "Econometrics Typst Extension Demo"
+author: "Giuseppe Ragusa"
+date: "2026"
+format:
+  econometrics-typst-typst:
+    number-sections: true
+    papersize: a4
+    mainfont: "Latin Modern Roman"
+    mathfont: "Latin Modern Math"
+    titlepage: false
+---
+
+# Probability Review
+
+## Expectations and Variance
+
+Consider a random variable $X$ with support on $\R$. The population is $\calP$.
+
+The expected value is $\E*{X}$ and the variance is $\var*{X} = \E*{(X - \E*{X})^2}$.
+
+The conditional expectation $\CE*{Y \given X}$ is the best predictor of $Y$ given $X$. The law of iterated expectations states
+$$
+\E*{Y} = \E*{\CE*{Y \given X}}
+$$ {#eq-lie}
+
+From @eq-lie we see that the unconditional mean averages the conditional mean.
+
+## Vectors and Matrices
+
+The design matrix is $\mX$ with rows $\vx_i$. The coefficient vector is $\vbeta$, error covariance is $\mSigma$, and the projection coefficient is $\vdelta$.
+
+## Convergence
+
+For iid data $X_i \simiid (\mu, \sigma^2)$, we have $\bar{X}_n \pto \mu$ and $\sqrt{n}(\bar{X}_n - \mu) \dto \Normal(0, \sigma^2)$.
+
+If $X \indep Y$ then $\cov*{X, Y} = 0$.
+
+## Delimiters
+
+Parentheses $\paren*{\frac{a}{b}}$, brackets $\brock*{x}$, norm $\norm*{\vx}$, absolute value $\abs*{x}$, ceiling $\ceil*{x}$, floor $\floor*{x}$.
+
+::: {#definition-cef}
+## Conditional Expectation Function
+
+The CEF of $Y$ given $X = x$ is $\mu(x) = \CE*{Y \given X = x}$.
+:::
+
+::: {#theorem-wlln}
+## Weak Law of Large Numbers
+
+If $\E*{\abs*{X}} < \infty$, then $\bar{X}_n = \frac{1}{n}\sumin X_i \pto \E*{X}$.
+:::
+
+::: {#remark-wlln-note}
+@theorem-wlln requires only a finite first moment.
+:::
+
+::: {.ananote}
+The linear projection $\LP*{Y \given 1, X}$ and the CEF $\CE*{Y \given X}$ coincide when the CEF is linear.
+:::

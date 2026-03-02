@@ -1,0 +1,20 @@
+title: Econometrics Typst
+author: Giuseppe Ragusa
+version: 0.1.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    typst:
+      template-partials:
+        - typst-template.typ
+        - typst-show.typ
+      include-in-header:
+        - theorem.typ
+        - ananote.typ
+        - titlepage.typ
+      filters:
+        - at: pre-quarto
+          path: expand-macros.lua
+        - at: pre-quarto
+          path: assumption-typst.lua
+        - filters-typst.lua

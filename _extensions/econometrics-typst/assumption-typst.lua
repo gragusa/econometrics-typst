@@ -154,8 +154,11 @@ function Cite(cite)
   end
 end
 
--- Return filter in correct order (Header must come before Div)
+-- Return filter in correct order:
+-- Pass 1: Header + Div together so section counter tracks correctly
+--         as the AST is walked in document order.
+-- Pass 2: Cite separately so all labels are populated before resolving.
 return {
-  {Header = Header},
-  {Div = Div, Cite = Cite}
+  {Header = Header, Div = Div},
+  {Cite = Cite}
 }

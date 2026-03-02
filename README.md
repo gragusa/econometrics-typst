@@ -20,10 +20,11 @@ format:
     number-sections: true
     papersize: a4
     mainfont: "Latin Modern Roman"
-    mathfont: "Latin Modern Math"
+    mathfont: "New Computer Modern Math"
     monofont: "JuliaMono"
     titlepage: true
-    titlepage-background: "background3.pdf"
+    titlepage-color: "1a1a2e"          # solid color background
+    # titlepage-background: "bg.png"   # or use an image (PNG/JPEG/SVG only)
     titlepage-rule-color: "360049"
 ```
 
@@ -90,7 +91,37 @@ Explanatory content here.
 
 ### Title Page
 
-Eisvogel-style title page with optional background image and colored rule. Set `titlepage: true` and provide `titlepage-background` and `titlepage-rule-color` in YAML.
+Eisvogel-style title page with colored rule and content overlay. Set `titlepage: true` and configure:
+
+| Option | Description |
+|--------|-------------|
+| `titlepage-color` | Hex color for solid background (e.g., `"1a1a2e"`) |
+| `titlepage-background` | Path to background image (PNG, JPEG, or SVG) |
+| `titlepage-rule-color` | Hex color for the decorative rule (default: `"435488"`) |
+| `titlepage-text-color` | Hex color for title text (auto: white with background, dark gray without) |
+| `titlepage-rule-height` | Rule thickness in pt (default: `4pt`) |
+
+Note: Typst does not support PDF images. If you have a PDF background from an eisvogel setup, convert it first: `pdftoppm -png -r 300 background.pdf bg` or `convert background.pdf background.png`.
+
+### Header and Footer
+
+The template includes eisvogel-style headers and footers with separator lines:
+
+- Header: title (left), date (right)
+- Footer: author (left), page number (right)
+
+These are suppressed on the title page. Override defaults via YAML:
+
+```yaml
+header-left: "Custom Header"
+header-right: "2026"
+footer-left: "Author Name"
+footer-right: ""  # empty to suppress page numbers
+```
+
+### Math Font
+
+The default math font is New Computer Modern Math, which provides better blackboard bold (𝔼, 𝕍, ℙ, ℝ) and calligraphic (𝒫, 𝒩) glyphs than Latin Modern Math. Override via `mathfont` in YAML.
 
 ## File Overview
 

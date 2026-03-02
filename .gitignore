@@ -1,0 +1,5 @@
+*.pdf
+*.typ
+!_extensions/**/*.typ
+.quarto/
+_freeze/

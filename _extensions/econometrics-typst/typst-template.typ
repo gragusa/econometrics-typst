@@ -10,7 +10,7 @@
   lang: "en",
   region: "US",
   font: "Latin Modern Roman",
-  mathfont: "Latin Modern Math",
+  mathfont: "New Computer Modern Math",
   monofont: "JuliaMono",
   fontsize: 11pt,
   sectionnumbering: "1.1.1",
@@ -18,6 +18,10 @@
   titlepage-background: none,
   titlepage-rule-color: rgb("#360049"),
   toc: false,
+  header-left: none,
+  header-right: none,
+  footer-left: none,
+  footer-right: none,
   doc,
 ) = {
   set page(paper: paper, margin: margin)
@@ -26,16 +30,52 @@
   show raw: set text(font: monofont, size: 0.9em)
   set par(justify: true)
 
-  // Heading numbering
-  if sectionnumbering != none {
-    set heading(numbering: sectionnumbering)
+  // Heading numbering — must be a top-level set rule (not inside `if`)
+  // so that it propagates to doc. Passing `none` disables numbering.
+  set heading(numbering: sectionnumbering)
+
+  // Heading spacing: add space below subsections
+  show heading.where(level: 2): set block(above: 1.4em, below: 1em)
+  show heading.where(level: 3): set block(above: 1.2em, below: 0.8em)
+
+  // Header and footer
+  let hl = if header-left != none { header-left } else if title != none { title } else { [] }
+  let hr = if header-right != none { header-right } else if date != none { date } else { [] }
+  let fl = if footer-left != none {
+    footer-left
+  } else {
+    authors.join(", ")
+  }
+  let fr = if footer-right != none { footer-right } else {
+    context counter(page).display("1")
   }
 
-  // Title page
-  if titlepage {
-    // Import and call titlepage
-    // (handled via typst-show.typ preamble)
-  }
+  set page(
+    header: context {
+      if counter(page).get().first() > 1 {
+        set text(size: 9pt)
+        grid(
+          columns: (1fr, 1fr),
+          align: (left, right),
+          hl, hr,
+        )
+        v(-3pt)
+        line(length: 100%, stroke: 0.5pt)
+      }
+    },
+    footer: context {
+      if counter(page).get().first() > 1 {
+        set text(size: 9pt)
+        line(length: 100%, stroke: 0.5pt)
+        v(-3pt)
+        grid(
+          columns: (1fr, 1fr),
+          align: (left, right),
+          fl, fr,
+        )
+      }
+    },
+  )
 
   // Table of contents
   if toc {

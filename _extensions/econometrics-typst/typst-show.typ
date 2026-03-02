@@ -38,8 +38,8 @@
   $if(margin)$
   margin: ($for(margin/pairs)$$margin.key$: $margin.value$,$endfor$),
   $endif$
-  $if(number-sections)$
-  sectionnumbering: "1.1.1",
+  $if(section-numbering)$
+  sectionnumbering: "$section-numbering$",
   $else$
   sectionnumbering: none,
   $endif$
@@ -53,6 +53,18 @@
   $if(titlepage-rule-color)$
   titlepage-rule-color: rgb("#$titlepage-rule-color$"),
   $endif$
+  $if(header-left)$
+  header-left: [$header-left$],
+  $endif$
+  $if(header-right)$
+  header-right: [$header-right$],
+  $endif$
+  $if(footer-left)$
+  footer-left: [$footer-left$],
+  $endif$
+  $if(footer-right)$
+  footer-right: [$footer-right$],
+  $endif$
   doc,
 )
 
@@ -62,6 +74,9 @@ $if(titlepage)$
   $if(author)$authors: ($for(author)$"$author$",$endfor$),$endif$
   $if(date)$date: [$date$],$endif$
   $if(titlepage-background)$background: "$titlepage-background$",$endif$
+  $if(titlepage-color)$titlepage-color: rgb("#$titlepage-color$"),$endif$
   $if(titlepage-rule-color)$rule-color: rgb("#$titlepage-rule-color$"),$endif$
+  $if(titlepage-text-color)$text-color: rgb("#$titlepage-text-color$"),$endif$
+  $if(titlepage-rule-height)$rule-height: $titlepage-rule-height$,$endif$
 )
 $endif$

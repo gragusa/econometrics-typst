@@ -55,9 +55,12 @@ simple["\\simiid"] = "\\overset{\\text{iid}}{\\sim}"
 simple["\\simnid"] = "\\overset{\\text{nid}}{\\sim}"
 simple["\\sima"] = "\\overset{\\text{a}}{\\sim}"
 
--- Independence
-simple["\\indep"] = "\\perp \\!\\!\\! \\perp"
-simple["\\nindep"] = "\\not\\perp \\!\\!\\! \\perp"
+-- Independence — use Unicode ⫫ (U+2AEB DOUBLE UP TACK) to avoid
+-- broken \!\!\! negative-space expansion in Pandoc's Typst writer.
+-- Use pandoc.utils.stringify-safe UTF-8 literal.
+simple["\\indep"] = "⫫"
+-- \nindep: U+2AEB + U+0338 (combining long solidus overlay)
+simple["\\nindep"] = "⫫̸"
 
 -- Summation shorthands
 simple["\\sumin"] = "\\sum_{i=1}^{n}"

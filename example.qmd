@@ -7,8 +7,10 @@ format:
     number-sections: true
     papersize: a4
     mainfont: "Latin Modern Roman"
-    mathfont: "Latin Modern Math"
-    titlepage: false
+    mathfont: "New Computer Modern Math"
+    titlepage: true
+    titlepage-color: "1a1a2e"
+    titlepage-rule-color: "360049"
 ---
 
 # Probability Review
@@ -55,6 +57,8 @@ If $\E*{\abs*{X}} < \infty$, then $\bar{X}_n = \frac{1}{n}\sumin X_i \pto \E*{X}
 ::: {#remark-wlln-note}
 @theorem-wlln requires only a finite first moment.
 :::
+
+By @definition-cef and @theorem-wlln, we can characterize the CEF.
 
 ::: {.ananote}
 The linear projection $\LP*{Y \given 1, X}$ and the CEF $\CE*{Y \given X}$ coincide when the CEF is linear.

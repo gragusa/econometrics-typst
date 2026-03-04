@@ -32,7 +32,7 @@
     [#section.#n]
   }
   let header = {
-    set text(font: "Latin Modern Sans", weight: "bold")
+    set text(font: "New Computer Modern Sans", weight: "bold")
     [#kind #number]
     if title != "" {
       [ (#title)]

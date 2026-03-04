@@ -51,9 +51,9 @@
   // Heading spacing: add space below subsections
   show heading.where(level: 1): set block(above: 1.5em, below: 1.2em)
 
-  show heading.where(level: 1): set text(size: 16pt)
-  show heading.where(level: 2): set text(size: 14pt)
-  show heading.where(level: 3): set text(size: 13pt)
+  show heading.where(level: 1): set text(size: 1.333em)
+  show heading.where(level: 2): set text(size: 1.167em)
+  show heading.where(level: 3): set text(size: 1.083em)
 
   show heading.where(level: 2): set block(above: 2em, below: 1.5em)
   show heading.where(level: 3): set block(above: 2em, below: 1.5em)

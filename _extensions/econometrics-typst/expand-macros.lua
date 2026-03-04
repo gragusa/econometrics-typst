@@ -119,8 +119,8 @@ local delimiters = {
   {"\\paren",         "(",           ")",           "\\left(",        "\\right)"},
   {"\\brock",         "[",           "]",           "\\left[",        "\\right]"},
   {"\\curly",         "\\{",         "\\}",         "\\left\\{",      "\\right\\}"},
-  {"\\norm",          "\\lVert ",    "\\rVert ",    "\\left\\lVert ", "\\right\\rVert "},
-  {"\\abs",           "\\lvert ",    "\\rvert ",    "\\left\\lvert ", "\\right\\rvert "},
+  {"\\norm",          "\\vert ",    "\\vert ",    "\\left\\vert ", "\\right\\vert "},
+  {"\\abs",           "\\Vert ",    "\\Vert ",    "\\left\\Vert ", "\\right\\Vert "},
   {"\\anglebrackets", "\\langle ",   "\\rangle ",   "\\left\\langle ","\\right\\rangle "},
   {"\\ceil",          "\\lceil ",    "\\rceil ",    "\\left\\lceil ", "\\right\\rceil "},
   {"\\floor",         "\\lfloor ",   "\\rfloor ",   "\\left\\lfloor ","\\right\\rfloor "},
@@ -154,7 +154,7 @@ local operators = {
   {"\\CEb",   "\\mathbb{E}",                "[", "]", "\\left[", "\\right]", true},
   {"\\LP",    "\\mathbb{P}",                "(", ")", "\\left(", "\\right)", true},
   {"\\LPb",   "\\mathbb{P}",                "[", "]", "\\left[", "\\right]", true},
-  {"\\Prob",  "\\mathbb{P}\\mathrm{r}",     "(", ")", "\\left(", "\\right)", true},
+  {"\\Prob",  "\\mathrm{Pr}",     "(", ")", "\\left(", "\\right)", true},
 }
 
 --------------------------------------------------------------------

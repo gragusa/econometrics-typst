@@ -64,9 +64,20 @@
 
 
 
-  show heading.where(level: 1): it => block(counter(heading).display(it.numbering) + h(1em) + it.body)
-  show heading.where(level: 2): it => block(counter(heading).display(it.numbering) + h(1em) + it.body)
-  show smallcaps: set text(font: "New Computer Modern Roman Caps")
+  show heading.where(level: 1): it => {
+    if it.numbering != none {
+      block(counter(heading).display(it.numbering) + h(1em) + it.body)
+    } else {
+      block(it.body)
+    }
+  }
+  show heading.where(level: 2): it => {
+    if it.numbering != none {
+      block(counter(heading).display(it.numbering) + h(1em) + it.body)
+    } else {
+      block(it.body)
+    }
+  }
   show heading.where(level: 3): smallcaps
   show heading: set text(fill: navy)
   // Header and footer

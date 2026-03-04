@@ -73,7 +73,6 @@
     // With background/color: double spacing, text near bottom
     v(1fr)
     v(-8em)
-    set text(font: "New Computer Modern Sans")
     text(size: 24pt, weight: "bold")[#title]
     v(2em)
     text(size: 16pt)[#authors.join(", ")]
@@ -83,7 +82,6 @@
   } else {
     // Without background: tighter spacing
     v(1fr)
-    set text(font: "New Computern Modern Sans")
     text(size: 24pt, weight: "bold")[#title]
     v(2em)
     text(size: 16pt)[#authors.join(", ")]

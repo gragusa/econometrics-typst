@@ -96,7 +96,7 @@ function Div(div)
   local blocks = pandoc.List({})
   blocks:insert(pandoc.RawBlock("typst",
     '#theorem-box(' ..
-    counter_names[prefix] .. ', ' ..
+    '"' .. counter_names[prefix] .. '", ' ..
     '"' .. config.display .. '", ' ..
     '"' .. escaped_title .. '", ' ..
     '"' .. label .. '", ' ..

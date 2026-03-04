@@ -18,13 +18,14 @@
 }
 
 // Generic theorem box function
-// counter: the specific counter for this environment type
+// ctr-name: the counter name string (e.g., "theorem-counter")
 // kind: display name (e.g., "Theorem", "Assumption")
 // title: optional title string (can be empty)
 // lbl: label string for cross-referencing (e.g., "theorem-clt")
 // fill-color: background color
 // body: content
-#let theorem-box(ctr, kind, title, lbl, fill-color, body) = {
+#let theorem-box(ctr-name, kind, title, lbl, fill-color, body) = {
+  let ctr = counter(ctr-name)
   ctr.step()
   let number = context {
     let section = counter(heading).get().first()
@@ -32,7 +33,7 @@
     [#section.#n]
   }
   let header = {
-    set text(font: "New Computer Modern Sans", weight: "bold")
+    set text(weight: "bold")
     [#kind #number]
     if title != "" {
       [ (#title)]

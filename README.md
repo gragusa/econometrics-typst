@@ -133,9 +133,42 @@ footer-left: "Author Name"
 footer-right: ""  # empty to suppress page numbers
 ```
 
+### Figure Captions
+
+Figure captions are **justified** (not centered) and rendered at a smaller font size (default `0.8em`). You can customise the caption size in YAML:
+
+```yaml
+caption-size: 0.7em   # any valid Typst length; defaults to 0.8em
+```
+
+### Code Blocks
+
+Code block backgrounds (source and output) span the **full text width** of the document.
+
 ### Math Font
 
 The default math font is New Computer Modern Math, which provides better blackboard bold (𝔼, 𝕍, ℙ, ℝ) and calligraphic (𝒫, 𝒩) glyphs than Latin Modern Math. Override via `mathfont` in YAML.
+
+### Matrix Environments (via mitex)
+
+When using the `mitex` extension for LaTeX math, matrix environments are automatically converted to native Typst `mat()` calls. Supported environments:
+
+| LaTeX environment | Delimiter |
+|-------------------|-----------|
+| `pmatrix` | `( )` |
+| `bmatrix` | `[ ]` |
+| `Bmatrix` | `{ }` |
+| `vmatrix` | `\| \|` |
+| `Vmatrix` | `\|\| \|\|` |
+| `matrix` | none |
+
+Example — the LaTeX input:
+
+```latex
+$X = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}$
+```
+
+renders correctly as a column vector. Cell contents containing LaTeX commands (e.g. `\alpha`, `\beta`) are handled automatically.
 
 ## File Overview
 

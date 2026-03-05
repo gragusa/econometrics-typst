@@ -32,6 +32,9 @@
   $if(fontsize)$
   fontsize: $fontsize$,
   $endif$
+  $if(caption-size)$
+  caption-size: $caption-size$,
+  $endif$
   $if(papersize)$
   paper: "$papersize$",
   $endif$

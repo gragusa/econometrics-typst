@@ -20,6 +20,7 @@
   mathfont: "New Computer Modern Math",
   monofont: "JuliaMono",
   fontsize: 12pt,
+  caption-size: 0.8em,
   sectionnumbering: "1.1",
   titlepage: false,
   titlepage-background: none,
@@ -36,6 +37,9 @@
   set text(lang: lang, region: region, font: font, size: fontsize)
   show math.equation: set text(font: mathfont)
   show raw: set text(font: monofont, size: 0.9em)
+  show figure.caption: set text(size: caption-size)
+  show figure.caption: set par(justify: true)
+  show raw.where(block: true): set block(width: 100%)
   context {
     let lineskip = leading(1.65em)
     set par(
